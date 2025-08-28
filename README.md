@@ -32,7 +32,7 @@ Sebuah project monolit portal berita untuk seleksi ENT menggunakan **Laravel**, 
 3. **Copy file environment**
 
     ```bash
-    cp .env.example .env
+    copy .env.example .env
     ```
 
 4. **Generate app key**
