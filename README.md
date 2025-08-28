@@ -19,7 +19,7 @@ Sebuah project monolit portal berita untuk seleksi ENT menggunakan **Laravel**, 
 
     ```bash
     git clone https://github.com/Glaezz/news-portal.git
-    cd repo-name
+    cd news-portal
 
     ```
 
