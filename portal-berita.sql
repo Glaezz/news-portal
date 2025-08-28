@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 28, 2025 at 05:32 AM
+-- Generation Time: Aug 28, 2025 at 07:21 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -173,7 +173,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('Eg5ty0sZHKh9zgnQhmVA3zS3jaPN6pXNYfq2nASe', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiWFVVYmVVOERqazE3TkhlWFpoVm5YYTNuU3lUTEpHQXl0U240cjhTTSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wb3N0cy8xIjt9fQ==', 1756357380);
+('Eg5ty0sZHKh9zgnQhmVA3zS3jaPN6pXNYfq2nASe', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiWFVVYmVVOERqazE3TkhlWFpoVm5YYTNuU3lUTEpHQXl0U240cjhTTSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wb3N0cy8xIjt9fQ==', 1756357380),
+('LHQ43rJSwsVhvvhrrBdkykSU5PCjNvOuSZVHOi6z', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiRFpmYmc4REUzRlVLY2pDbW9yOEI3SHd1Q0s3bzhRSmZGWU01Q1ppYSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjI7fQ==', 1756365497);
 
 -- --------------------------------------------------------
 
@@ -197,7 +198,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `role`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Fieza', 'fiezarausyan@gmail.com', 'admin', '$2y$12$HVsI/Z40X8OXQO9VDpeZ7eT4mFXZgLVvcmsskiF9KsXHvdOl1JfOO', NULL, '2025-08-27 20:57:30', '2025-08-27 20:57:30');
+(1, 'Fieza', 'fiezarausyan@gmail.com', 'admin', '$2y$12$HVsI/Z40X8OXQO9VDpeZ7eT4mFXZgLVvcmsskiF9KsXHvdOl1JfOO', NULL, '2025-08-27 20:57:30', '2025-08-27 20:57:30'),
+(2, 'ENT', 'admin@gmail.com', 'admin', '$2y$12$IuEESyQ6d36QNFvyaPqcKeGGw8RfbB/FVRzQ48ADSbme42yeBHSui', NULL, '2025-08-28 00:18:17', '2025-08-28 00:18:17');
 
 --
 -- Indexes for dumped tables
@@ -301,7 +303,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
