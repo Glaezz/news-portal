@@ -58,7 +58,13 @@ Sebuah project monolit portal berita untuk seleksi ENT menggunakan **Laravel**, 
     file sql terdapat di repositori.
     ```
 
-7. **Buat symbolic link storage**
+7. **migrate laravel**
+
+    ```bash
+    php artisan migrate
+    ```
+
+8. **Buat symbolic link storage**
 
     ```bash
     php artisan storage:link
