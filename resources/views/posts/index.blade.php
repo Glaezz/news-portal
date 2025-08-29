@@ -19,7 +19,7 @@
     <x-navbar />
 
     <!-- Dashboard Section -->
-    <section class="bg-white dark:bg-gray-900 min-h-[85vh] py-6">
+    <section class="bg-white dark:bg-gray-900 min-h-screen py-6">
         <div class="container px-4 mx-auto">
             <!-- Header -->
             <div class="flex items-center justify-between">
@@ -47,7 +47,7 @@
                             stroke-linejoin="round"
                             d="M12 4.5v15m7.5-7.5h-15" />
                     </svg>
-                    Add New Article
+                    Add News
                 </a>
             </div>
 
@@ -64,6 +64,11 @@
                                 <thead class="bg-gray-50 dark:bg-gray-800">
                                     <tr>
                                         <!-- Judul Column -->
+                                        <th
+                                            scope="col"
+                                            class="px-4 py-3.5 text-sm font-normal text-gray-500 dark:text-gray-400">
+                                            Gambar
+                                        </th>
                                         <th
                                             scope="col"
                                             class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -116,12 +121,23 @@
                                     @foreach ($posts as $post)
                                     <tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
                                         <td
+                                            class="px-4 py-4 text-sm flex justify-center font-medium whitespace-nowrap">
+                                            <img
+                                                class="object-cover w-20 h-10 rounded-lg "
+                                                src="{{ $post->image ? asset('storage/' . $post->image) : 'https://via.placeholder.com/150' }}"
+                                                alt="" />
+                                        </td>
+                                        <td
                                             class="px-4 py-4 text-sm font-medium whitespace-nowrap">
                                             <div class="max-w-xs">
                                                 <h2
                                                     class="font-medium text-gray-800 dark:text-white truncate">
                                                     {{ $post->title }}
                                                 </h2>
+                                                <p
+                                                    class="text-sm text-gray-500 dark:text-gray-400 mt-1 truncate">
+                                                    {{ $post->content }}
+                                                </p>
                                             </div>
                                         </td>
                                         <td class="px-4 py-4 text-sm whitespace-nowrap">
@@ -212,60 +228,8 @@
             </div>
 
             <!-- Pagination -->
-            <div class="flex items-center justify-between mt-6">
-                <a
-                    href="#"
-                    class="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="w-5 h-5 rtl:-scale-x-100">
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
-                    </svg>
-                    <span>Sebelumnya</span>
-                </a>
-
-                <div class="items-center hidden md:flex gap-x-3">
-                    <a
-                        href="#"
-                        class="px-2 py-1 text-sm text-blue-500 rounded-md dark:bg-gray-800 bg-blue-100/60">1</a>
-                    <a
-                        href="#"
-                        class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">2</a>
-                    <a
-                        href="#"
-                        class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">3</a>
-                    <a
-                        href="#"
-                        class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">...</a>
-                    <a
-                        href="#"
-                        class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">12</a>
-                </div>
-
-                <a
-                    href="#"
-                    class="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
-                    <span>Selanjutnya</span>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="w-5 h-5 rtl:-scale-x-100">
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-                    </svg>
-                </a>
+            <div class="mt-6">
+                {{ $posts->links() }}
             </div>
         </div>
     </section>

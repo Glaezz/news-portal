@@ -80,6 +80,9 @@
             </div>
         </div>
 
+        @if (Route::currentRouteName() == 'posts.index')
+
+        @else
         <div
             class="py-3 mt-3 -mx-3 overflow-y-auto whitespace-nowrap scroll-hidden">
             <a
@@ -107,5 +110,6 @@
                 class="mx-4 text-sm leading-5 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0"
                 href="#">Science</a>
         </div>
+        @endif
     </div>
 </nav>

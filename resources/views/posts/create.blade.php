@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create News</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 
 <body class="bg-gray-100 dark:bg-gray-900">
@@ -60,6 +61,11 @@
                     <label for="image" class="block text-gray-700 dark:text-gray-200 mb-2">
                         Image
                     </label>
+                    <img
+                        id="preview"
+                        class="object-cover my-2 w-40 h-20 rounded-lg "
+                        src="https://placehold.co/40?text=\n"
+                        alt="" />
                     <input
                         id="image"
                         name="image"
@@ -83,5 +89,18 @@
         </div>
     </section>
 </body>
+<script>
+    const imageInput = document.getElementById('image');
+    const preview = document.getElementById('preview');
+
+    imageInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            preview.src = URL.createObjectURL(file);
+        } else {
+            preview.src = "https://via.placeholder.com/150";
+        }
+    });
+</script>
 
 </html>

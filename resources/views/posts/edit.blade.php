@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create News</title>
+    <title>Edit News</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -29,7 +29,7 @@
                         id="title"
                         name="title"
                         type="text"
-                        value="{{ old('title') }}"
+                        value="{{ $post->title }}"
                         placeholder="Enter news title"
                         class="block w-full px-4 py-2 text-gray-700 bg-white border @error('title') border-red-500 @else border-gray-300 @enderror rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:outline-none" />
                     @error('title')
@@ -47,7 +47,7 @@
                         name="content"
                         rows="6"
                         placeholder="Enter news content here..."
-                        class="block w-full px-4 py-2 text-gray-700 bg-white border @error('content') border-red-500 @else border-gray-300 @enderror rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:outline-none">{{ old('content') }}</textarea>
+                        class="block w-full px-4 py-2 text-gray-700 bg-white border @error('content') border-red-500 @else border-gray-300 @enderror rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:outline-none">{{ $post->content }}</textarea>
                     @error('content')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                     @enderror
@@ -58,11 +58,16 @@
                     <label for="image" class="block text-gray-700 dark:text-gray-200 mb-2">
                         Image
                     </label>
+                    <img
+                        class="object-cover my-2 w-40 h-20 rounded-lg "
+                        src="{{ $post->image ? asset('storage/' . $post->image) : 'https://via.placeholder.com/150' }}"
+                        alt="" />
                     <input
                         id="image"
                         name="image"
                         type="file"
                         accept="image/*"
+                        value="{{ $post->image }}"
                         class="block w-full text-gray-700 bg-white border @error('image') border-red-500 @else border-gray-300 @enderror rounded-md cursor-pointer dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 focus:outline-none" />
                     @error('image')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>

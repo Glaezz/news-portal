@@ -17,10 +17,10 @@ class PostController extends Controller
 
     public function index()
     {
-        if (Auth::user()->role !== 'admin' || Auth::user() == null) {
+        if (Auth::check() == false || Auth::user()->role !== 'admin') {
             return redirect()->route('login');
         }
-        $posts = Post::with('user')->latest()->get();
+        $posts = Post::with('user')->latest()->paginate(5);
         return view('posts.index', compact('posts'));
     }
 
@@ -32,7 +32,7 @@ class PostController extends Controller
 
     public function create()
     {
-        if (Auth::user()->role !== 'admin' || Auth::user() == null) {
+        if (Auth::check() == false || Auth::user()->role !== 'admin') {
             return redirect()->route('login');
         }
         return view('posts.create');
@@ -40,7 +40,7 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        if (Auth::user()->role !== 'admin' || Auth::user() == null) {
+        if (Auth::check() == false || Auth::user()->role !== 'admin') {
             return redirect()->route('login');
         }
         $request->validate([
@@ -69,7 +69,7 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
-        if (Auth::user()->role !== 'admin' || Auth::user() == null) {
+        if (Auth::check() == false || Auth::user()->role !== 'admin') {
             return redirect()->route('login');
         }
         return view('posts.edit', compact('post'));
@@ -77,7 +77,7 @@ class PostController extends Controller
 
     public function update(Request $request, Post $post)
     {
-        if (Auth::user()->role !== 'admin' || Auth::user() == null) {
+        if (Auth::check() == false || Auth::user()->role !== 'admin') {
             return redirect()->route('login');
         }
         $request->validate([
@@ -108,7 +108,7 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
-        if (Auth::user()->role !== 'admin' || Auth::user() == null) {
+        if (Auth::check() == false || Auth::user()->role !== 'admin') {
             return redirect()->route('login');
         }
 
